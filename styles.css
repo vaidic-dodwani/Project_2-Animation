@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#game {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.track {
+  text-align: center;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  background-color: aqua;
+  width: 23vw;
+  height: 92vh;
+}
