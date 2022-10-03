@@ -25,7 +25,9 @@
 
 .static_button {
   position: absolute;
-  bottom: 5vh;
-  left: auto;
-  right: auto;
+  bottom: 4vh;
+}
+
+.moving_button {
+  position: absolute;
 }
