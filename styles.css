@@ -11,7 +11,9 @@
 }
 
 .track {
+  display: flex;
   text-align: center;
+  justify-content: center;
   padding-top: 4vh;
   padding-bottom: 4vh;
   padding-left: 1vw;
@@ -19,4 +21,11 @@
   background-color: aqua;
   width: 23vw;
   height: 92vh;
+}
+
+.static_button {
+  position: absolute;
+  bottom: 5vh;
+  left: auto;
+  right: auto;
 }
