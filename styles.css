@@ -31,3 +31,11 @@
 .moving_button {
   position: absolute;
 }
+@media only screen and (max-width: 450px) {
+  .static_button {
+    height: 64px;
+  }
+  .moving_button {
+    height: 64px;
+  }
+}

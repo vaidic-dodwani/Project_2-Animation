@@ -8,7 +8,10 @@ const m_down_button = document.getElementById("moving_down");
 const m_right_button = document.getElementById("moving_right");
 const key_press = new Audio("Assests/key_press.mp3");
 const helpme = document.getElementById("helpme");
-var mover = 0;
+
+function RandomSpeed(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 function bpress(button) {
   button.style.transform = "translateY(0.5vh)";
@@ -21,36 +24,27 @@ function breset(button) {
   button.style.opacity = "1";
 }
 
-function convertPXToVW(px) {
-  return px * (100 / document.documentElement.clientWidth);
-}
-const iconsize = convertPXToVW(128);
-
-// function falling(button) {
-//   if (mover >= 50) {
-//     mover = 0;
-//   } else {
-//     button.style.top = mover + "vh";
-//   }
-//   mover = mover + 1;
-// }
-
-function drop_it(button) {
+function drop_it(button, speed) {
+  var mover = 4;
   setInterval(function () {
-    if (mover >= 80) {
-      mover = 0;
+    if (mover >= 82) {
+      mover = 4;
     } else {
       button.style.top = mover + "vh";
     }
-    mover = mover + 1;
-  }, 50);
+    mover = mover + speed / 1000;
+  }, 10);
 }
+
+drop_it(m_left_button, RandomSpeed(100, 200));
+drop_it(m_up_button, RandomSpeed(100, 200));
+drop_it(m_right_button, RandomSpeed(100, 200));
+drop_it(m_down_button, RandomSpeed(100, 200));
 
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "ArrowLeft":
       bpress(s_left_button);
-      drop_it(m_left_button, 0);
       break;
     case "ArrowUp":
       bpress(s_up_button);
