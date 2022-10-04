@@ -11,6 +11,7 @@ var mover = [0, 0, 0, 0];
 var ButtonHeight = 0;
 var score = 0;
 var loopcntl = [0, 0, 0, 0];
+var mode = 0;
 const key_press = new Audio("Assests/key_press.mp3");
 const helpme = document.getElementById("helpme");
 
@@ -44,7 +45,7 @@ function isColliding(i) {
 }
 
 function scoresetter() {
-  scorebox.innerHTML = "Score - " + score;
+  scorebox.innerHTML = score;
 }
 
 function Clicker(i) {
@@ -80,6 +81,29 @@ function drop_it(button, speed) {
     }
     mover[i] = mover[i] + speed / 100;
   }, 10);
+}
+
+function mode_toggle() {
+  if (mode == 0) {
+    document.getElementById("mode_toggle").src = "Assests/night.png";
+    document.body.style.backgroundImage = "url('assests/night-bg.jpg')";
+    document.getElementById("controls").style.color = "white";
+    m_left_button.src = "Assests/moving_arrow-left - white.png";
+    m_up_button.src = "Assests/moving_arrow-up - white.png";
+    m_down_button.src = "Assests/moving_arrow-down - white.png";
+    m_right_button.src = "Assests/moving_arrow-right - white.png";
+
+    mode = 1;
+  } else {
+    document.getElementById("mode_toggle").src = "Assests/day.png";
+    document.body.style.backgroundImage = "url('assests/day-bg.jpg')";
+    m_left_button.src = "Assests/moving_arrow-left.png";
+    m_up_button.src = "Assests/moving_arrow-up.png";
+    m_down_button.src = "Assests/moving_arrow-down.png";
+    m_right_button.src = "Assests/moving_arrow-right.png";
+
+    mode = 0;
+  }
 }
 
 drop_it(m_left_button, RandomSpeed(10, 40));

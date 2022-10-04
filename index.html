@@ -13,12 +13,18 @@
     <p id="helpme2"></p>
     <p id="helpme3"></p>
     <div id="controls">
+      <img
+        id="mode_toggle"
+        src="assests/day.png"
+        alt="toggle"
+        onclick="mode_toggle()"
+      />
+      <p class="tags" id="score"></p>
       <p class="tags">Score</p>
-      <p class="tags">Score</p>
-      <p class="tags" id="score">Score</p>
     </div>
     <div id="game">
       <div class="track">
+        <div class="cover" onclick="Clicker(0)"></div>
         <img
           class="static_button"
           id="static_left"
@@ -28,11 +34,12 @@
         <img
           class="moving_button"
           id="moving_left"
-          src="assests/moving_arrow-left - white.png"
+          src="assests/moving_arrow-left.png"
           alt="left button"
         />
       </div>
       <div class="track">
+        <div class="cover" onclick="Clicker(1)"></div>
         <img
           class="static_button"
           id="static_up"
@@ -42,11 +49,12 @@
         <img
           class="moving_button"
           id="moving_up"
-          src="assests/moving_arrow-up - white.png"
+          src="assests/moving_arrow-up.png"
           alt="up button"
         />
       </div>
       <div class="track">
+        <div class="cover" onclick="Clicker(2)"></div>
         <img
           class="static_button"
           id="static_down"
@@ -56,11 +64,12 @@
         <img
           class="moving_button"
           id="moving_down"
-          src="assests/moving_arrow-down - white.png"
+          src="assests/moving_arrow-down.png"
           alt="down button"
         />
       </div>
       <div class="track">
+        <div class="cover" onclick="Clicker(3)"></div>
         <img
           class="static_button"
           id="static_right"
@@ -70,7 +79,7 @@
         <img
           class="moving_button"
           id="moving_right"
-          src="assests/moving_arrow-right - white.png"
+          src="assests/moving_arrow-right.png"
           alt="right button"
         />
       </div>

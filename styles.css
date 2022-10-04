@@ -3,40 +3,21 @@
   margin: 0;
 }
 
+body {
+  background-image: url("assests/day-bg.jpg");
+  background-size: cover;
+}
+
 #game {
   display: flex;
   width: 100vw;
   height: 95vh;
-  background-image: url("assests/sky.jpg");
-  background-size: cover;
-}
-
-.body {
-  background-image: url("assests/sky.jpg");
-  background-size: cover;
-}
-.track {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  padding-top: 4vh;
-  padding-bottom: 4vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  width: 23vw;
-  height: 87vh;
-}
-
-.static_button {
-  position: absolute;
-  bottom: 4vh;
-}
-
-.moving_button {
-  position: absolute;
+  /* background-image: url("assests/day-bg.jpg");
+  background-size: cover; */
 }
 
 #controls {
+  color: rgb(43, 13, 13);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -49,11 +30,51 @@
   font-size: 2rem;
 }
 
+#mode_toggle {
+  margin-left: 1.5rem;
+  height: 5vh;
+  cursor: pointer;
+}
+
+.track {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  width: 23vw;
+  height: 87vh;
+}
+
+.cover {
+  width: 128px;
+  height: 128px;
+  z-index: 10;
+  position: absolute;
+  bottom: 4vh;
+}
+
+.static_button {
+  position: absolute;
+  bottom: 4vh;
+}
+
+.moving_button {
+  position: absolute;
+}
+
 @media only screen and (max-width: 450px) {
   .static_button {
     height: 64px;
   }
   .moving_button {
+    height: 64px;
+  }
+
+  .cover {
+    width: 64px;
     height: 64px;
   }
 }
