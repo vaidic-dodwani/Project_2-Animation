@@ -6,7 +6,7 @@
 #game {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   background-color: black;
 }
 
@@ -20,7 +20,7 @@
   padding-right: 1vw;
   background-color: aqua;
   width: 23vw;
-  height: 92vh;
+  height: 87vh;
 }
 
 .static_button {
@@ -31,6 +31,21 @@
 .moving_button {
   position: absolute;
 }
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100vw;
+  height: 5vh;
+  background-color: blue;
+  padding: 0;
+}
+
+.tags {
+  font-size: 2rem;
+}
+
 @media only screen and (max-width: 450px) {
   .static_button {
     height: 64px;

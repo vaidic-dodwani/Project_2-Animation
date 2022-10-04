@@ -6,6 +6,7 @@ const m_left_button = document.getElementById("moving_left");
 const m_up_button = document.getElementById("moving_up");
 const m_down_button = document.getElementById("moving_down");
 const m_right_button = document.getElementById("moving_right");
+const scorebox = document.getElementById("score");
 var mover = [0, 0, 0, 0];
 var ButtonHeight = 0;
 var score = 0;
@@ -42,6 +43,10 @@ function isColliding(i) {
   else return 0;
 }
 
+function scoresetter() {
+  scorebox.innerHTML = "Score - " + score;
+}
+
 function Clicker(i) {
   var button;
   if (i == 0) button = m_left_button;
@@ -53,6 +58,7 @@ function Clicker(i) {
     clearInterval(loopcntl[i]);
     drop_it(button, RandomSpeed(100, 200));
     score++;
+    scoresetter();
   }
 }
 
@@ -65,7 +71,7 @@ function drop_it(button, speed) {
   if (button == m_right_button) i = 3;
   loopcntl[i] = setInterval(function () {
     if (mover[i] >= 100 - ButtonHeight) {
-      mover[i] = 4;
+      mover[i] = 9;
     } else {
       button.style.top = mover[i] + "vh";
     }
