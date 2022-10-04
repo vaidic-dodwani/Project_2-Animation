@@ -56,8 +56,11 @@ function Clicker(i) {
   if (isColliding(i) == 1) {
     mover[i] = 0;
     clearInterval(loopcntl[i]);
-    drop_it(button, RandomSpeed(100, 200));
+    drop_it(button, RandomSpeed(10, 40));
     score++;
+    scoresetter();
+  } else {
+    score--;
     scoresetter();
   }
 }
@@ -75,14 +78,14 @@ function drop_it(button, speed) {
     } else {
       button.style.top = mover[i] + "vh";
     }
-    mover[i] = mover[i] + speed / 1000;
+    mover[i] = mover[i] + speed / 100;
   }, 10);
 }
 
-drop_it(m_left_button, RandomSpeed(100, 200));
-drop_it(m_up_button, RandomSpeed(100, 200));
-drop_it(m_down_button, RandomSpeed(100, 200));
-drop_it(m_right_button, RandomSpeed(100, 200));
+drop_it(m_left_button, RandomSpeed(10, 40));
+drop_it(m_up_button, RandomSpeed(10, 40));
+drop_it(m_down_button, RandomSpeed(10, 40));
+drop_it(m_right_button, RandomSpeed(10, 40));
 
 window.addEventListener("keydown", (event) => {
   switch (event.key) {

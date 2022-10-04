@@ -7,9 +7,14 @@
   display: flex;
   width: 100vw;
   height: 95vh;
-  background-color: black;
+  background-image: url("assests/sky.jpg");
+  background-size: cover;
 }
 
+.body {
+  background-image: url("assests/sky.jpg");
+  background-size: cover;
+}
 .track {
   display: flex;
   text-align: center;
@@ -18,7 +23,6 @@
   padding-bottom: 4vh;
   padding-left: 1vw;
   padding-right: 1vw;
-  background-color: aqua;
   width: 23vw;
   height: 87vh;
 }
@@ -38,7 +42,6 @@
   justify-content: space-between;
   width: 100vw;
   height: 5vh;
-  background-color: blue;
   padding: 0;
 }
 
