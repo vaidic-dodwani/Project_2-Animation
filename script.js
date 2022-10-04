@@ -57,7 +57,7 @@ function Clicker(i) {
   if (isColliding(i) == 1) {
     mover[i] = 0;
     clearInterval(loopcntl[i]);
-    drop_it(button, RandomSpeed(10, 40));
+    drop_it(button, RandomSpeed(20, 40));
     score++;
     scoresetter();
   } else {
@@ -106,26 +106,30 @@ function mode_toggle() {
   }
 }
 
-drop_it(m_left_button, RandomSpeed(10, 40));
-drop_it(m_up_button, RandomSpeed(10, 40));
-drop_it(m_down_button, RandomSpeed(10, 40));
-drop_it(m_right_button, RandomSpeed(10, 40));
+drop_it(m_left_button, RandomSpeed(20, 40));
+drop_it(m_up_button, RandomSpeed(20, 40));
+drop_it(m_down_button, RandomSpeed(20, 40));
+drop_it(m_right_button, RandomSpeed(20, 40));
 
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "ArrowLeft":
+    case "a":
       bpress(s_left_button);
       Clicker(0);
       break;
     case "ArrowUp":
+    case "w":
       bpress(s_up_button);
       Clicker(1);
       break;
     case "ArrowDown":
+    case "s":
       bpress(s_down_button);
       Clicker(2);
       break;
     case "ArrowRight":
+    case "d":
       bpress(s_right_button);
       Clicker(3);
       break;
@@ -135,15 +139,19 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keyup", (event) => {
   switch (event.key) {
     case "ArrowLeft":
+    case "a":
       breset(s_left_button);
       break;
     case "ArrowUp":
+    case "w":
       breset(s_up_button);
       break;
     case "ArrowDown":
+    case "s":
       breset(s_down_button);
       break;
     case "ArrowRight":
+    case "d":
       breset(s_right_button);
       break;
   }
