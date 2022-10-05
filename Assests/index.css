@@ -12,7 +12,8 @@ body {
   text-align: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   background-color: black;
   color: white;
 }
@@ -34,6 +35,7 @@ body {
   text-align: center;
   display: none;
   opacity: 0;
+  line-height: 8vh;
 }
 
 #go {
@@ -48,4 +50,26 @@ body {
   font-size: 10rem;
   display: none;
   opacity: 0;
+}
+
+@media only screen and (max-width: 615px) {
+  #welcome {
+    font-size: 6rem;
+  }
+  #instructions {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    position: relative;
+    font-size: 5rem;
+    line-height: 4vh;
+  }
+
+  #rules {
+    width: 95vw;
+  }
+
+  #go {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
 }

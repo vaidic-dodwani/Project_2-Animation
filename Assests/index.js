@@ -3,6 +3,7 @@ const instructions = document.getElementById("instructions");
 const rules = document.getElementById("rules");
 const go = document.getElementById("go");
 const atb = document.getElementById("atb");
+var screen = 1;
 
 function fade_in(thing) {
   let opacity = 0;
@@ -39,6 +40,7 @@ function gosecond() {
     fade_in(instructions);
     fade_in(go);
   }, 800);
+  screen = 2;
 }
 
 function gothird() {
@@ -54,6 +56,13 @@ function gothird() {
   }, 3800);
 
   window.setTimeout(function () {
-    window.open("game.html");
+    window.open("game.html", "_self");
   }, 4600);
+  screen = 3;
 }
+
+window.addEventListener("keydown", function () {
+  if (screen == 1) {
+    gosecond();
+  }
+});

@@ -7,7 +7,7 @@ const m_up_button = document.getElementById("moving_up");
 const m_down_button = document.getElementById("moving_down");
 const m_right_button = document.getElementById("moving_right");
 const scorebox = document.getElementById("score");
-var mover = [0, 0, 0, 0];
+var mover = [9, 9, 9, 9];
 var ButtonHeight = 0;
 var score = 0;
 var loopcntl = [0, 0, 0, 0];
@@ -23,6 +23,8 @@ const helpme = document.getElementById("helpme");
 if (document.documentElement.clientWidth <= 450)
   ButtonHeight = 64 * (100 / document.documentElement.clientHeight);
 else ButtonHeight = 128 * (100 / document.documentElement.clientHeight);
+
+window.setTimeout(startgame, 2000);
 
 function RandomSpeed(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -109,10 +111,12 @@ function mode_toggle() {
   }
 }
 
-drop_it(m_left_button, RandomSpeed(20, 40));
-drop_it(m_up_button, RandomSpeed(20, 40));
-drop_it(m_down_button, RandomSpeed(20, 40));
-drop_it(m_right_button, RandomSpeed(20, 40));
+function startgame() {
+  drop_it(m_left_button, RandomSpeed(20, 40));
+  drop_it(m_up_button, RandomSpeed(20, 40));
+  drop_it(m_down_button, RandomSpeed(20, 40));
+  drop_it(m_right_button, RandomSpeed(20, 40));
+}
 
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
