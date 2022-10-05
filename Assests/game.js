@@ -166,7 +166,7 @@ function stop_game(isRestart) {
   if (isRestart) {
     health = 10;
     score = 0;
-    scorebox.style.innerHTML = "";
+    scorebox.innerHTML = "";
     overlay_text.innerHTML = "GAME OVER";
     overlay_button.innerHTML = "Try Again";
     heart_refresh();
