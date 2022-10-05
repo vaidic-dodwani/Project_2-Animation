@@ -26,15 +26,24 @@ body {
   height: 5vh;
   padding: 0;
 }
-
-.tags {
-  font-size: 2rem;
-}
-
 #mode_toggle {
   margin-left: 1.5rem;
   height: 5vh;
   cursor: pointer;
+}
+
+#score {
+  font-size: 2rem;
+}
+
+body ul {
+  list-style-type: none;
+  display: flex;
+  position: relative;
+}
+
+.hearts {
+  height: 5vh;
 }
 
 .track {

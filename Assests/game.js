@@ -7,18 +7,14 @@ const m_up_button = document.getElementById("moving_up");
 const m_down_button = document.getElementById("moving_down");
 const m_right_button = document.getElementById("moving_right");
 const scorebox = document.getElementById("score");
+const hearts = document.getElementsByClassName("hearts");
+var health = 10;
 var mover = [9, 9, 9, 9];
 var ButtonHeight = 0;
 var score = 0;
 var loopcntl = [0, 0, 0, 0];
 var mode = 0;
 const key_press = new Audio("Assests/key_press.mp3");
-const helpme = document.getElementById("helpme");
-
-// document.getElementById("helpme").innerHTML=
-// document.getElementById("helpme1").innerHTML=
-// document.getElementById("helpme2").innerHTML=
-// document.getElementById("helpme3").innerHTML=
 
 if (document.documentElement.clientWidth <= 450)
   ButtonHeight = 64 * (100 / document.documentElement.clientHeight);
@@ -50,6 +46,15 @@ function scoresetter() {
   scorebox.innerHTML = score;
 }
 
+function damage() {
+  health--;
+  if (health <= 8) hearts[0].style.display = "none";
+  if (health <= 6) hearts[1].style.display = "none";
+  if (health <= 4) hearts[2].style.display = "none";
+  if (health <= 2) hearts[3].style.display = "none";
+  if (health <= 0) hearts[4].style.display = "none";
+}
+
 function Clicker(i) {
   var button;
   if (i == 0) button = m_left_button;
@@ -78,6 +83,7 @@ function drop_it(button, speed) {
   loopcntl[i] = setInterval(function () {
     if (mover[i] >= 100 - ButtonHeight) {
       mover[i] = 9;
+      damage();
       clearInterval(loopcntl[i]);
       drop_it(button, RandomSpeed(20, 40));
     } else {
