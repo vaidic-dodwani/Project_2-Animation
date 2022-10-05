@@ -1,3 +1,4 @@
+const game = document.getElementById("game");
 const s_left_button = document.getElementById("static_left");
 const s_up_button = document.getElementById("static_up");
 const s_down_button = document.getElementById("static_down");
@@ -8,12 +9,16 @@ const m_down_button = document.getElementById("moving_down");
 const m_right_button = document.getElementById("moving_right");
 const scorebox = document.getElementById("score");
 const hearts = document.getElementsByClassName("hearts");
+const overlay = document.getElementById("overlay");
+const overlay_text = document.getElementById("overlay_text");
+const overlay_button = document.getElementById("overlay_button");
 var health = 10;
 var mover = [9, 9, 9, 9];
 var ButtonHeight = 0;
 var score = 0;
 var loopcntl = [0, 0, 0, 0];
 var mode = 0;
+var paused = 0;
 const key_press = new Audio("Assests/key_press.mp3");
 
 if (document.documentElement.clientWidth <= 450)
@@ -48,11 +53,14 @@ function scoresetter() {
 
 function damage() {
   health--;
-  if (health <= 8) hearts[0].style.display = "none";
-  if (health <= 6) hearts[1].style.display = "none";
-  if (health <= 4) hearts[2].style.display = "none";
-  if (health <= 2) hearts[3].style.display = "none";
-  if (health <= 0) hearts[4].style.display = "none";
+  if (health == 8) hearts[0].style.display = "none";
+  if (health == 6) hearts[1].style.display = "none";
+  if (health == 4) hearts[2].style.display = "none";
+  if (health == 2) hearts[3].style.display = "none";
+  if (health == 0) {
+    hearts[4].style.display = "none";
+    stop_game(1);
+  }
 }
 
 function Clicker(i) {
@@ -102,6 +110,8 @@ function mode_toggle() {
     m_up_button.src = "Assests/moving_arrow-up - white.png";
     m_down_button.src = "Assests/moving_arrow-down - white.png";
     m_right_button.src = "Assests/moving_arrow-right - white.png";
+    overlay_text.style.color = "white";
+    overlay_button.style.color = "white";
 
     mode = 1;
   } else {
@@ -112,6 +122,8 @@ function mode_toggle() {
     m_up_button.src = "Assests/moving_arrow-up.png";
     m_down_button.src = "Assests/moving_arrow-down.png";
     m_right_button.src = "Assests/moving_arrow-right.png";
+    overlay_text.style.color = "black";
+    overlay_button.style.color = "black";
 
     mode = 0;
   }
@@ -122,6 +134,38 @@ function startgame() {
   drop_it(m_up_button, RandomSpeed(20, 40));
   drop_it(m_down_button, RandomSpeed(20, 40));
   drop_it(m_right_button, RandomSpeed(20, 40));
+}
+
+function replay_game() {
+  overlay.style.display = "none";
+  overlay_text.style.display = "none";
+  overlay_button.style.display = "none";
+  game.style.filter = "";
+  startgame();
+}
+
+function stop_game(isRestart) {
+  for (let i = 0; i < 4; ++i) {
+    window.setTimeout(function () {
+      clearInterval(loopcntl[i]);
+    }, 50);
+  }
+  overlay.style.display = "flex";
+  overlay_text.style.display = "block";
+  overlay_button.style.display = "block";
+  game.style.filter = "blur(8px)";
+
+  if (isRestart) {
+    health = 10;
+    score = 0;
+    scorebox.style.innerHTML = "";
+    overlay_text.innerHTML = "GAME OVER";
+    overlay_button.innerHTML = "Try Again";
+    for (let i = 0; i < 4; ++i) mover[i] = 9;
+  } else {
+    overlay_text.innerHTML = "PAUSED";
+    overlay_button.innerHTML = "RESUME";
+  }
 }
 
 window.addEventListener("keydown", (event) => {
@@ -146,6 +190,15 @@ window.addEventListener("keydown", (event) => {
       bpress(s_right_button);
       Clicker(3);
       break;
+    case " ": {
+      if (!paused) {
+        stop_game(0);
+        paused = 1;
+      } else {
+        replay_game();
+        paused = 0;
+      }
+    }
   }
 });
 
