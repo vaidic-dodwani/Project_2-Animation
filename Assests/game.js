@@ -53,14 +53,22 @@ function scoresetter() {
 
 function damage() {
   health--;
-  if (health == 8) hearts[0].style.display = "none";
-  if (health == 6) hearts[1].style.display = "none";
-  if (health == 4) hearts[2].style.display = "none";
-  if (health == 2) hearts[3].style.display = "none";
+  if (health == 8) hearts[0].style.opacity = 0;
+  if (health == 6) hearts[1].style.opacity = 0;
+  if (health == 4) hearts[2].style.opacity = 0;
+  if (health == 2) hearts[3].style.opacity = 0;
   if (health == 0) {
-    hearts[4].style.display = "none";
+    hearts[4].style.opacity = 0;
     stop_game(1);
   }
+}
+
+function heart_refresh() {
+  if (health > 0) hearts[0].style.opacity = "";
+  if (health > 2) hearts[1].style.opacity = "";
+  if (health > 4) hearts[2].style.opacity = "";
+  if (health > 6) hearts[3].style.opacity = "";
+  if (health > 8) hearts[4].style.opacity = "";
 }
 
 function Clicker(i) {
@@ -161,6 +169,7 @@ function stop_game(isRestart) {
     scorebox.style.innerHTML = "";
     overlay_text.innerHTML = "GAME OVER";
     overlay_button.innerHTML = "Try Again";
+    heart_refresh();
     for (let i = 0; i < 4; ++i) mover[i] = 9;
   } else {
     overlay_text.innerHTML = "PAUSED";
