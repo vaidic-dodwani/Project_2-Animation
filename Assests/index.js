@@ -5,6 +5,12 @@ const go = document.getElementById("go");
 const atb = document.getElementById("atb");
 var screen = 1;
 
+function checkgosecond() {
+  if (screen == 1) {
+    gosecond();
+  }
+}
+
 function fade_in(thing) {
   let opacity = 0;
   thing.style.opacity = opacity;
@@ -62,7 +68,5 @@ function gothird() {
 }
 
 window.addEventListener("keydown", function () {
-  if (screen == 1) {
-    gosecond();
-  }
+  checkgosecond();
 });
