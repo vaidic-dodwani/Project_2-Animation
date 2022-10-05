@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+
 * {
   padding: 0;
   margin: 0;
 }
 
 body {
-  background-image: url("assests/day-bg.jpg");
+  font-family: "Silkscreen", cursive;
+  background-image: url("day-bg.jpg");
   background-size: cover;
 }
 
@@ -12,8 +15,6 @@ body {
   display: flex;
   width: 100vw;
   height: 95vh;
-  /* background-image: url("assests/day-bg.jpg");
-  background-size: cover; */
 }
 
 #controls {

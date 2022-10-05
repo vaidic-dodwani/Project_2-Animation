@@ -76,6 +76,8 @@ function drop_it(button, speed) {
   loopcntl[i] = setInterval(function () {
     if (mover[i] >= 100 - ButtonHeight) {
       mover[i] = 9;
+      clearInterval(loopcntl[i]);
+      drop_it(button, RandomSpeed(20, 40));
     } else {
       button.style.top = mover[i] + "vh";
     }
@@ -97,6 +99,7 @@ function mode_toggle() {
   } else {
     document.getElementById("mode_toggle").src = "Assests/day.png";
     document.body.style.backgroundImage = "url('assests/day-bg.jpg')";
+    document.getElementById("controls").style.color = "black";
     m_left_button.src = "Assests/moving_arrow-left.png";
     m_up_button.src = "Assests/moving_arrow-up.png";
     m_down_button.src = "Assests/moving_arrow-down.png";
