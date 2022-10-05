@@ -113,3 +113,12 @@ body ul {
     height: 64px;
   }
 }
+
+@media only screen and (max-width: 540px) {
+  #overlay_text {
+    font-size: 5rem;
+  }
+  #overlay_button {
+    font-size: 2rem;
+  }
+}
