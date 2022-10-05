@@ -112,7 +112,7 @@ function drop_it(button, speed) {
 function mode_toggle() {
   if (mode == 0) {
     document.getElementById("mode_toggle").src = "Assests/night.png";
-    document.body.style.backgroundImage = "url('assests/night-bg.jpg')";
+    document.body.style.backgroundImage = "url('Assests/night-bg.jpg')";
     document.getElementById("controls").style.color = "white";
     m_left_button.src = "Assests/moving_arrow-left - white.png";
     m_up_button.src = "Assests/moving_arrow-up - white.png";
@@ -124,7 +124,7 @@ function mode_toggle() {
     mode = 1;
   } else {
     document.getElementById("mode_toggle").src = "Assests/day.png";
-    document.body.style.backgroundImage = "url('assests/day-bg.jpg')";
+    document.body.style.backgroundImage = "url('Assests/day-bg.jpg')";
     document.getElementById("controls").style.color = "black";
     m_left_button.src = "Assests/moving_arrow-left.png";
     m_up_button.src = "Assests/moving_arrow-up.png";
